@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="close" ng-back ></div>
+	<div class="image" style="background-image: url({{ albumImage }})"></div>
+	<div class="text dark">
+		<h1 class="page-title">{{ album.name }}</h1>
+		<div class="subline">{{ album.artist }}</div>
+		<table class="tracks">
+			<tr ng-repeat="track in album.tracks.track">
+				<td>{{ $index + 1 }}</td>
+				<td>{{ track.name }}</td>
+				<td>{{ time( track.duration ) }}</td>
+			</tr>
+		</table>
+
+	</div>
+</div>

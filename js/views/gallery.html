@@ -1,0 +1,25 @@
+	<div class="loading" ng-show="loading"></div>	
+
+	<ul class="nav">
+		<li ng-repeat="band in bands" ng-click="moveTo( $index )" 
+			ng-class="{active: $index == currentPage}">{{ band.name }}</li>
+	</ul>
+	
+	<div ng-repeat="band in bands" class="container" id="band-{{ $index }}">
+		<div class="image" style="background-image: url({{ band.image }})"></div>
+		<div class="text">
+			<h1 class="page-title">{{ band.name }}</h1>
+			<div class="section-title">Top albums:</div>
+			<ul class="albums">
+				<li ng-repeat="album in band.albums">
+					<a href="#/album/{{ album.id }}">
+						<img src="{{ album.image }}" title="{{ album.name }}" />
+					</a>
+				</li>
+			</ul>
+			<a href="{{ band.url }}" class="btn" target="_blank">official page</a>
+			<a href="#/bio/{{ band.name }}" class="btn">read bio</button>
+		</div>
+	</div>
+
+

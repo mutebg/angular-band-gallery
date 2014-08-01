@@ -1,0 +1,279 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.main {
+	position:relative; 
+	height: 100%; 
+	width: 100%;
+}
+
+.main-view {
+	position: absolute; 
+	height: 100%; 
+	width: 100%;
+
+	.ng-enter,
+	.ng-leave {
+  		transition: 0.5s linear all;
+	}
+
+	.ng-enter,
+	.ng-leave.ng-leave-active {
+  		opacity:0;
+	}
+
+	.ng-leave,
+	.ng-enter.ng-enter-active {
+  		opacity:1;
+	}
+}
+
+.page-title {
+	font-size: 68px;
+	color: #fff;
+	padding-top: 100px;
+	margin: 0;
+	font-weight: 300;
+	text-shadow: 0px 2px 3px #666;
+	background: none;
+}
+
+.subline {
+	font-size: 24px;
+	color: #fff;
+	text-shadow: 0px 1px 1px #666;
+}
+
+.section-title {
+	margin: 40px 0 0 0;
+	font-size: 24px;
+	color: #fff;
+	text-transform: lowercase;
+}
+
+.container {
+	position: relative;
+	height: 100%;
+	background: #ccc;
+
+	.image {
+		 -webkit-filter: blur(3px);
+		filter: blur(3px);
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center center;
+		height: 100%;
+		background-color: #ccc; 
+		z-index: 1;
+	}
+
+	.text {
+		z-index: 10;
+		padding: 0 100px 50px 100px;
+		text-align: center;
+		background-color: rgba(0, 0, 0, .3);
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
+
+		&.dark {
+			background-color: rgba(0, 0, 0, .7);
+		}
+	}
+
+	.image,
+	.text {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}	
+
+	
+	a {
+		color: #fff;
+	}
+}
+
+.nav {
+	position: fixed;
+	z-index: 100;
+	right: 0;
+	top: 40%;
+	border-radius: 10px;
+	padding: 10px 20px 10px 10px;
+	background: #fff;
+	margin-right: -125px;
+	list-style-type: disc;
+	list-style-position: inside;
+	transition: .2s;
+	width: 150px;
+
+	&:hover {
+		margin-right: -10px;
+	}
+
+	li {
+		color: #000;
+		cursor: pointer;
+		overflow: hidden;
+  		text-overflow: ellipsis;
+  		white-space: nowrap;
+
+		&.active {
+			color: red;
+		}
+	}
+}
+
+.close {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	z-index: 999999;
+	border-radius: 30px;
+	border: 4px solid #fff;
+
+	&:before,
+	&:after {
+		content: "";
+		width: 30px;
+		height: 4px;
+		background: #fff;
+		position: absolute;
+		top: 18px;
+		left: 6px;
+	}
+
+	&:before {
+		transform: rotate(45deg);
+	}
+
+	&:after {
+		transform: rotate(-45deg);
+	}
+}
+
+.btn {
+	display: inline-block;
+	padding: 15px 30px;
+	color: #fff;
+	border: 1px solid #fff;
+	text-decoration: none;
+	transition: .5s;
+	background-color: rgba(255, 255, 255, .1);
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 16px;
+	margin: 0;
+
+	&:hover {
+		color: #000;
+		background-color: #fff;
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+}
+
+.home {
+	background: url(../images/home-bg.jpeg) center center no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+
+	textarea {
+		width: 100%;
+		padding: 20px;
+		background-color: rgba(255, 255, 255, 0.3);
+		border: 1px solid #ccc;
+		height: 30%;
+		margin: 50px 0;
+		font-size: 24px;
+	}
+}
+
+.albums {
+	list-style-type: none;
+	padding: 0;
+
+	li {
+		display: inline-block;
+		width: 126px;
+		height:126px;
+		margin: 2px;
+		position: relative;
+
+		a {
+			text-decoration: none;
+			display: inline-block;
+			width: 126px;
+			height: 126px;
+			transition: 2.2s;
+
+
+			&:hover {
+				&:after {
+					display: block;
+				}
+
+				img{
+					opacity: .3;
+				}
+			}
+
+			&:after {
+				transition: 2.2s;
+				width: 126px;
+				height: 126px;
+				background: url(../images/play.png) no-repeat center center;
+				background-size: 80% 80%;
+				content: "";
+				position: absolute;
+				z-index: 2;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+		}
+	}
+}
+
+.loading {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: url(../images/loading.gif) no-repeat center center;
+	z-index: 100000;
+}
+
+.tracks {
+	color: #fff;
+	border-spacing: none;
+	border-collapse: collapse;
+	margin: 20px auto 0 auto;
+	tr {
+		td {
+			border-bottom: 1px solid #ccc;
+			text-align: left;
+			padding: 5px 20px;
+		}
+	}
+}
+
+.html-text {
+	color: #fff;
+	text-align: justify;
+}
